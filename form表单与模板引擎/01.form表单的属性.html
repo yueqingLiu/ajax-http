@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form表单的属性</title>
+</head>
+<body>
+  <!-- action属性用来规定当提交表单时，向何处发送表单数据 -->
+  <!-- action属性的值应该是后端提供的一个URL地址，这个URL地址专门负责接收表单提交过来的数据 -->
+  <!-- 当form表单在未指定action属性值的情况下，action的默认值为当前页面的URL地址 -->
+  <!-- 注意：当表单提交后，页面会立即跳转到action属性指定的URL地址，同时将提交的表单数据以字符串的形式拼接到地址的后面 -->
+  <form action="/login">
+    <input type="text" name="email_or_mobile">
+    <input type="password" name="password">
+    <button type="submit">提交</button>
+  </form>
+</body>
+</html>
