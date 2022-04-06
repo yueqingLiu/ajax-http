@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>演示模板引擎的使用</title>
+  <!-- 1.导入art-template -->
+  <!-- 在window全局多一个函数，叫做 template('模板Id', 需要的数据对象) -->
+  <script src="./lib/template-web.js"></script>
+  <script src="./lib/jquery.js"></script>
+</head>
+
+<body>
+  <!-- 5.渲染HTML结构 -->
+  <div id="container"></div>
+
+  <!-- 3.定义模板 -->
+  <!-- 模板的HTML结构 必须定义在script中 -->
+  <script type="text/html" id="tpl_user">
+    <h1>{{name}} ---------- {{age}}</h1>
+    {{@ test}}
+    <div>
+      {{if flag === 0}} 
+      flag的值为0 
+      {{else if flag === 1}}
+      flag的值为1
+      {{/if}}
+    </div>
+    <ul>
+      {{each hobby}}
+      <li>索引是：{{$index}}，循环项是：{{$value}}</li>
+      {{/each}}
+    </ul>
+  </script>
+  <script>
+    // 2.定义数据
+    var data = {
+      name: 'zs',
+      age: 20,
+      test: '<h3>原文输出</h3>', // 原文输出
+      flag: 1, // 条件输出
+      hobby: ['吃饭', '睡觉', '写代码'], // 循环输出
+    }
+
+    // 4.调用template函数
+    var strHtml = template('tpl_user', data)
+    // 5.渲染HTML结构
+    $('#container').html(strHtml)
+  </script>
+</body>
+
+</html>

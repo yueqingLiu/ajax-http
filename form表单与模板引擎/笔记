@@ -42,3 +42,18 @@ form表单的基本使用
       语法: $(selector).serialize()
       好处: 可以一次性获取到表单中的所有的数据
       注意: 在使用serialize函数快速获取表单数据时,必须为每个表单元素添加name属性
+
+模板引擎
+  概念：模板引擎，顾名思义，它可以根据程序员指定的模板结构和数据，自动生成一个完整的HTML页面
+  好处：
+    1.减少了字符串的拼接操作
+    2.使代码结构更清晰
+    3.使代码更易于阅读与维护
+  art-template模板引擎：
+    http://aui.github.io/art-template/zh-cn/index.html
+    基本使用：
+      1.导入art-template 
+      2.定义数据
+      3.定义模板
+      4.调用template函数
+      5.渲染HTML结构
