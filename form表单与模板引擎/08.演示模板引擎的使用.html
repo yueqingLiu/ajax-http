@@ -33,8 +33,18 @@
       <li>索引是：{{$index}}，循环项是：{{$value}}</li>
       {{/each}}
     </ul>
+    <h3>{{regTime | dateFormat}}</h3>
   </script>
   <script>
+    // 定义处理时间的过滤器
+    template.defaults.imports.dateFormat = function (date) {
+      // console.log(date);
+      var y = date.getFullYear()
+      var m = date.getMonth() + 1
+      var d = date.getDate()
+      return y + '-' + m + '-' + d // 注意：过滤器最后一定要return一个值
+    }
+
     // 2.定义数据
     var data = {
       name: 'zs',
@@ -42,6 +52,7 @@
       test: '<h3>原文输出</h3>', // 原文输出
       flag: 1, // 条件输出
       hobby: ['吃饭', '睡觉', '写代码'], // 循环输出
+      regTime: new Date()
     }
 
     // 4.调用template函数

@@ -57,3 +57,17 @@ form表单的基本使用
       3.定义模板
       4.调用template函数
       5.渲染HTML结构
+  标准语法---过滤器
+    过滤器的本质就是一个function处理函数
+    语法：
+      {{ value | filterName }} 类似管道操作符，上一个输出作为下一个输入
+    定义过滤器的基本语法：
+      template.defaults.imports.filterName = function (value) {/*return处理的结果*/}
+    定义格式化时间的过滤器：
+      <div>注册时间：{{regTime | dateFormat}}</div>
+      template.defaults.imports.dateFormat = function(date) {
+        var y = date.getFullYear()
+        var m = date.getMonth() + 1
+        var d = date.getDate()
+        return y + '-' + m + '-' + d // 注意：过滤器最后一定要return一个值
+      }
