@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>剖析JSONP实现原理2</title>
+</head>
+
+<body>
+  <script>
+    function success(data) {
+      // data 就是通过JSONP请求回来的数据
+      console.log('拿到了data数据');
+      console.log(data);
+    }
+  </script>
+
+  <!-- 将函数的调用抽离为单独的JS文件 -->
+  <!-- 通过callback指定回调函数的名称 -->
+  <script src="./js/getdata.js?callback=success"></script>
+</body>
+
+</html>
